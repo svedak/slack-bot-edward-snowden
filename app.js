@@ -17,16 +17,12 @@ function onMessageToEdwardSnowden (message) {
     return;
   }
 
-  function randomUsername () {
-    return Math.random().toString(36).substring(2);
-  }
-
   function randomHexColor() {
     return Math.random().toString(16).substring(2, 2+6);
   }
 
   var text = message.text;
-  var anonymousUser = randomUsername();
+  var anonymousUser = 'snitchbot';
   var someColor = randomHexColor();
   var anonymousIcon = 'http://placehold.it/80/' + someColor + '/'+ someColor;
 
@@ -36,8 +32,8 @@ function onMessageToEdwardSnowden (message) {
     icon_url: anonymousIcon
   };
 
-  // post message to #random
-  var anonymousChannel = slack.getChannelByName('random');
+  // post message to #feedback
+  var anonymousChannel = slack.getChannelByName('feedback');
   anonymousChannel.postMessage(response);
 }
 
